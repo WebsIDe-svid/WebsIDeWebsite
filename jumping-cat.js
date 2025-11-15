@@ -15,9 +15,11 @@ function cat_jump(event) {
 
         return [cat_x, cat_y, current_mouse_x, current_mouse_y, cat_bbox]
     }
+
     const jump_range = 500;
     const catch_range = 20;
     let container = document.getElementById("cat-container");
+    let cat = document.getElementById("cat");
     const speed = 3;
 
     let positions = get_postions(cat);
