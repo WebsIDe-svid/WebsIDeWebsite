@@ -18,8 +18,9 @@ function cat_jump(event) {
 
     const jump_range = 500;
     const catch_range = 20;
-    let container = document.getElementById("cat-container");
-    let cat = document.getElementById("cat");
+    const container = document.getElementById("cat-container");
+    const container_bbox = container.getBoundingClientRect();
+    const cat = document.getElementById("cat");
     const speed = 3;
 
     let positions = get_postions(cat);
@@ -49,8 +50,8 @@ function cat_jump(event) {
                 let x_velocity = speed * Math.cos(angle);
                 let y_velocity = speed * Math.sin(angle);
 
-                cat.style.left = (parseFloat(cat.style.left) || 0) + x_velocity + "px";
-                cat.style.top = (parseFloat(cat.style.top) || 0) + y_velocity + "px";
+                cat.style.left = Math.min(Math.max((parseFloat(cat.style.left) || 0) + x_velocity, 0), container_bbox.width - positions[4].width) + "px";
+                cat.style.top = Math.min((parseFloat(cat.style.top) || 0) + y_velocity, 0) + "px";
             } else {
                 clearInterval(move_cat);
                 cat_moving = false;
