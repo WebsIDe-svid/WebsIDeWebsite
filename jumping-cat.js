@@ -15,11 +15,9 @@ function cat_jump(event) {
 
         return [cat_x, cat_y, current_mouse_x, current_mouse_y, cat_bbox]
     }
-
     const jump_range = 500;
     const catch_range = 20;
     let container = document.getElementById("cat-container");
-    let cat = document.getElementById("cat");
     const speed = 3;
 
     let positions = get_postions(cat);
@@ -51,10 +49,7 @@ function cat_jump(event) {
 
                 cat.style.left = (parseFloat(cat.style.left) || 0) + x_velocity + "px";
                 cat.style.top = (parseFloat(cat.style.top) || 0) + y_velocity + "px";
-
-                console.log(`mouse pos ${[positions[0], positions[1]]} | cat pos ${[positions[2], positions[3]]} | d (${dx}; ${dy})`)
             } else {
-                console.log("too far")
                 clearInterval(move_cat);
                 cat_moving = false;
             }
