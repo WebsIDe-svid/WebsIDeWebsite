@@ -2,7 +2,6 @@ let cat_moving = false;
 let current_mouse_x = 0;
 let current_mouse_y = 0;
 
-// Separate listener to ALWAYS update mouse position
 document.addEventListener('mousemove', function(event) {
     current_mouse_x = event.clientX;
     current_mouse_y = event.clientY;
@@ -14,7 +13,6 @@ function cat_jump(event) {
         let cat_x = cat_bbox.left + cat_bbox.width / 2;
         let cat_y = cat_bbox.top + cat_bbox.height / 2;
 
-        // Uses the globally updated current_mouse_x and current_mouse_y
         return [cat_x, cat_y, current_mouse_x, current_mouse_y, cat_bbox]
     }
 
